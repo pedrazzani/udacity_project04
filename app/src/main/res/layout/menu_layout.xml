@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/menu_linear_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:background="@android:color/holo_red_light"
+    android:orientation="horizontal"
+    android:padding="16dp">
+
+    <!--<ImageView-->
+        <!--android:id="@+id/home_image_view"-->
+        <!--style="@style/MenuItemStyle"-->
+        <!--android:src="@drawable/home" />-->
+
+    <ImageView
+        android:id="@+id/search_image_view"
+        style="@style/MenuItemStyle"
+        android:src="@drawable/search" />
+
+    <ImageView
+        android:id="@+id/radio_image_view"
+        style="@style/MenuItemStyle"
+        android:src="@drawable/radio" />
+
+    <ImageView
+        android:id="@+id/folder_image_view"
+        style="@style/MenuItemStyle"
+        android:src="@drawable/folder" />
+
+</LinearLayout>
