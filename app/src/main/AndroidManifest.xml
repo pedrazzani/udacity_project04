@@ -24,9 +24,13 @@
             android:parentActivityName=".InicioActivity" />
         <activity
             android:name=".PlayActivity"
-            android:label="@string/play_activity_name"
             android:configChanges="screenSize|orientation"
+            android:label="@string/play_activity_name"
             android:parentActivityName=".LocalActivity" />
+        <activity
+            android:name=".DetalheActivity"
+            android:label="@string/detalhe_activity_name"
+            android:parentActivityName=".LocalActivity"></activity>
     </application>
 
 </manifest>

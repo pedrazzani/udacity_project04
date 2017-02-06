@@ -11,9 +11,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 import br.com.pedrazzani.android.mymusicapp.adapters.LocalMusicAdapter;
 import br.com.pedrazzani.android.mymusicapp.services.LastFmService;
@@ -30,38 +32,21 @@ public class LocalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_local);
 
-        final Cursor c = new LocalMusicService(this).getCursor();
+        final Cursor cursor = new LocalMusicService(this).getCursor();
 
-        if (c != null) {
-            c.moveToFirst();
-            localMusicAdapter = new LocalMusicAdapter(getApplicationContext(), R.layout.content_music, c, null, null, 0);
+        if (cursor != null) {
+
+
+            cursor.moveToFirst();
+
+            for(int i = 0; i < cursor.getColumnCount(); i++){
+                System.out.println(cursor.getColumnName(i) + " : " + cursor.getString(1));
+            }
+
+            localMusicAdapter = new LocalMusicAdapter(this, R.layout.content_music, cursor, null, null, 0);
 
             ListView lista = (ListView) findViewById(R.id.lista_local_musica);
             lista.setAdapter(localMusicAdapter);
-
-            lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    c.moveToPosition(position);
-
-                    Log.i(TAG, c.getString(c.getColumnIndex(MediaStore.MediaColumns.TITLE)));
-
-                    Bundle bundle = new Bundle();
-                    bundle.putString("URI",view.getTag().toString());
-                    bundle.putString("MUSICA",c.getString(c.getColumnIndex(MediaStore.MediaColumns.TITLE)));
-                    bundle.putString("ARTISTA",c.getString(c.getColumnIndex(MediaStore.Audio.AudioColumns.ARTIST)));
-                    bundle.putString("DURACAO",c.getString(c.getColumnIndex(MediaStore.Audio.AudioColumns.DURATION)));
-                    bundle.putParcelable("ALBUM",
-                            new LastFmService().searchAlbum(
-                                    c.getString(c.getColumnIndex(MediaStore.Audio.AudioColumns.ALBUM)),
-                                    c.getString(c.getColumnIndex(MediaStore.Audio.AudioColumns.ARTIST))));
-
-                    Intent intent = new Intent(getBaseContext(),PlayActivity.class);
-                    intent.putExtras(bundle);
-                    startActivity(intent);
-                }
-
-            });
 
         }
     }

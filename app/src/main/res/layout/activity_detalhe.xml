@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_detalhe"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.com.pedrazzani.android.mymusicapp.DetalheActivity">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="1">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@mipmap/ic_launcher"
+                android:id="@+id/detalhe_album_image_view"
+                android:scaleType="centerCrop"
+                android:layout_weight="0.43" />
+
+            <TextView
+                android:text="Play Ball"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/detalhe_musica_text_view"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:padding="8dp"
+                android:gravity="center_horizontal" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:text="Álbum:"
+                        android:id="@+id/textView5"
+                        style="@style/DetalheLabelStyle"/>
+
+                    <TextView
+                        android:text="Artista:"
+                        android:id="@+id/textView4"
+                        style="@style/DetalheLabelStyle" />
+
+                    <TextView
+                        android:text="Ano:"
+                        android:id="@+id/textView6"
+                        style="@style/DetalheLabelStyle" />
+
+                    <TextView
+                        android:text="Duração:"
+                        android:id="@+id/textView8"
+                        style="@style/DetalheLabelStyle" />
+                    <TextView
+                        android:text="Gênero:"
+                        android:id="@+id/textView10"
+                        style="@style/DetalheLabelStyle" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="8dp">
+
+                    <TextView
+                        android:text="AC/DC"
+                        android:id="@+id/detalhe_album_text_view"
+                        style="@style/DetalheFieldStyle" />
+
+                    <TextView
+                        android:text="Rock or Bust"
+                        android:id="@+id/detalhe_artista_text_view"
+                        style="@style/DetalheFieldStyle" />
+
+                    <TextView
+                        android:text="2005"
+                        android:id="@+id/detalhe_ano_text_view"
+                        style="@style/DetalheFieldStyle"/>
+
+                    <TextView
+                        android:text="23 min"
+                        android:id="@+id/detalhe_duracao_text_view"
+                        style="@style/DetalheFieldStyle"/>
+
+                    <TextView
+                        android:text="Rock"
+                        android:id="@+id/detalhe_genero_text_view"
+                        style="@style/DetalheFieldStyle" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="CURSOR" type="id">1</item>
+    <item name="PROSITION" type="id">2</item>
+
+    //TAG
+    <item name="ALBUM" type="string">ALBUM</item>
+    <item name="CAPA" type="string">CAPA</item>
+    <item name="ARTISTA" type="string">ARTISTA</item>
+    <item name="ANO" type="string">ANO</item>
+    <item name="MUSICA" type="string">MUSICA</item>
+    <item name="DURACAO" type="string">DURACAO</item>
+    <item name="GENERO" type="string">GENERO</item>
+    <item name="URI" type="string">URI</item>
+
+
+</resources>

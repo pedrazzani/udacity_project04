@@ -1,5 +1,17 @@
 <resources>
-    <string name="app_name">My Music App</string>
-    <string name="local_music_name">Local</string>
-    <string name="play_activity_name">Player</string>
+    <string name="app_name">Minhas Músicas</string>
+    <string name="local_music_name" translatable="true">Biblioteca Local</string>
+    <string name="play_activity_name" translatable="true">Tocador</string>
+    <string name="detalhe_activity_name" translatable="true">Detalhes</string>
+
+    //Detalhes
+    <string name="detalhe_album_label" translatable="true" >Álbum:</string>
+    <string name="detalhe_artista_label" translatable="true" >Artista:</string>
+    <string name="detalhe_ano_label" translatable="true" >Ano:</string>
+    <string name="detalhe_duracao_label" translatable="true" >Duração:</string>
+    <string name="detalhe_genero_label" translatable="true" >Gênero:</string>
+    <string name="detalhe_genero_column" translatable="true" >genre_name</string>
+
+
+
 </resources>

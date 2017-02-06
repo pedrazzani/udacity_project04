@@ -3,12 +3,14 @@ package br.com.pedrazzani.android.mymusicapp.entidades;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by pedrazzani on 28/01/2017.
  */
 
-public class
-Album implements Parcelable {
+public class Album implements Parcelable {
 
     private String nome;
     private String artista;

@@ -15,4 +15,20 @@
         <item name="android:animateOnClick">true</item>
     </style>
 
+    //Texto Detalhes
+    <style name="DetalheLabelStyle" parent="AppTheme" >
+        <item name="android:layout_width" >match_parent</item>
+        <item name="android:layout_height" >wrap_content</item>
+        <item name="android:layout_margin" >4dp</item>
+        <item name="android:layout_weight">10</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="DetalheFieldStyle" parent="AppTheme" >
+        <item name="android:layout_width" >match_parent</item>
+        <item name="android:layout_height" >wrap_content</item>
+        <item name="android:layout_margin" >4dp</item>
+        <item name="android:layout_weight">10</item>
+    </style>
+
 </resources>

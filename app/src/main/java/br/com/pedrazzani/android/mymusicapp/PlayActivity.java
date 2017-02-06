@@ -43,20 +43,20 @@ public class PlayActivity extends AppCompatActivity {
         TextView musica = (TextView) findViewById(R.id.musica_player_text_view);
         TextView artista = (TextView) findViewById(R.id.artista_player_text_view);
         TextView duracao = (TextView) findViewById(R.id.duracao_player_text_view);
-        musica.setText(bundle.get("MUSICA").toString());
-        artista.setText(bundle.get("ARTISTA").toString());
+        musica.setText(bundle.get(getResources().getString(R.string.MUSICA)).toString());
+        artista.setText(bundle.get(getResources().getString(R.string.ARTISTA)).toString());
 
         //Carrega a foto do Álbum da Música - Se existir
-        Album album = bundle.getParcelable("ALBUM");
+        Album album = bundle.getParcelable(getResources().getString(R.string.ALBUM));
         new DownloadImageTask().execute(album.getUrlImageLarge());
 
         //Ajusta a duração da trilha
-        Long duracaoMS = Long.parseLong(bundle.get("DURACAO").toString());
+        Long duracaoMS = Long.parseLong(bundle.getString(getResources().getString(R.string.DURACAO)));
         String saida = geraTempo(duracaoMS);
         duracao.setText(saida);
 
         //Cria a Uri do local do arquivo
-        final Uri uri = Uri.parse(bundle.get("URI").toString());
+        final Uri uri = Uri.parse(bundle.get(getResources().getString(R.string.URI)).toString());
 
         //Inicia a Classe MediaPlayer
         mediaPlayer = new MediaPlayer();
