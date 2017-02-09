@@ -19,18 +19,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LocalActivity"
+            android:name=".BibliotecaLocalActivity"
             android:label="@string/local_music_name"
             android:parentActivityName=".InicioActivity" />
         <activity
             android:name=".PlayActivity"
             android:configChanges="screenSize|orientation"
             android:label="@string/play_activity_name"
-            android:parentActivityName=".LocalActivity" />
+            android:parentActivityName=".BibliotecaLocalActivity" />
         <activity
             android:name=".DetalheActivity"
             android:label="@string/detalhe_activity_name"
-            android:parentActivityName=".LocalActivity"></activity>
+            android:parentActivityName=".BibliotecaLocalActivity"></activity>
     </application>
 
 </manifest>

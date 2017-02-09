@@ -3,35 +3,26 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="8dp"
-    android:layout_height="wrap_content">
+    android:padding="8dp">
 
     <ImageButton
         android:id="@+id/play_image_button"
-        android:layout_weight="1"
-        android:layout_height="match_parent"
         android:layout_width="0dp"
-        android:scaleType="fitCenter"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
         android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
         android:src="@android:drawable/ic_media_play" />
-
-
-    <!--<TextView-->
-        <!--android:id="@+id/track_text_view"-->
-        <!--android:layout_width="0dp"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginRight="8dp"-->
-        <!--android:layout_weight="1"-->
-        <!--android:textColor="@android:color/black" />-->
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
         android:layout_weight="6"
-        android:orientation="vertical"
-        android:layout_marginLeft="4dp">
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/title_text_view"
@@ -66,18 +57,11 @@
 
     <ImageButton
         android:id="@+id/detalhe_image_button"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:layout_width="0dp"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
         android:src="@drawable/detalhe" />
-
-    <!--<TextView-->
-        <!--android:id="@+id/duracao_text_view"-->
-        <!--android:layout_width="0dp"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_weight="1"-->
-        <!--android:textColor="@android:color/black" />-->
 
 </LinearLayout>

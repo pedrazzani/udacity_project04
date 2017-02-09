@@ -21,29 +21,29 @@ public class DetalheActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
 
-        ImageView capa = (ImageView) findViewById(R.id.detalhe_album_image_view);
-        TextView musica = (TextView) findViewById(R.id.detalhe_musica_text_view);
-        TextView album = (TextView) findViewById(R.id.detalhe_album_text_view);
-        TextView artista = (TextView) findViewById(R.id.detalhe_artista_text_view);
-        TextView ano = (TextView) findViewById(R.id.detalhe_ano_text_view);
-        TextView duracao = (TextView) findViewById(R.id.detalhe_duracao_text_view);
-        TextView genero = (TextView) findViewById(R.id.detalhe_genero_text_view);
+        ImageView capaImageView = (ImageView) findViewById(R.id.detalhe_album_image_view);
+        TextView musicaTextView = (TextView) findViewById(R.id.detalhe_musica_text_view);
+        TextView albumTextView = (TextView) findViewById(R.id.detalhe_album_text_view);
+        TextView artistaTextView = (TextView) findViewById(R.id.detalhe_artista_text_view);
+        TextView anoTextView = (TextView) findViewById(R.id.detalhe_ano_text_view);
+        TextView duracaoTextView = (TextView) findViewById(R.id.detalhe_duracao_text_view);
+        TextView generoTextView = (TextView) findViewById(R.id.detalhe_genero_text_view);
 
-        musica.setText(bundle.getString(getResources().getString(R.string.MUSICA)));
-        album.setText(bundle.getString(getResources().getString(R.string.ALBUM)));
-        artista.setText(bundle.getString(getResources().getString(R.string.ARTISTA)));
-        ano.setText(bundle.getString(getResources().getString(R.string.ANO)));
-        genero.setText(bundle.getString(getResources().getString(R.string.GENERO)));
+        musicaTextView.setText(bundle.getString(getResources().getString(R.string.MUSICA)));
+        albumTextView.setText(bundle.getString(getResources().getString(R.string.ALBUM)));
+        artistaTextView.setText(bundle.getString(getResources().getString(R.string.ARTISTA)));
+        anoTextView.setText(bundle.getString(getResources().getString(R.string.ANO)));
+        generoTextView.setText(bundle.getString(getResources().getString(R.string.GENERO)));
 
         Long d = Long.parseLong(bundle.getString(getResources().getString(R.string.DURACAO))) / 1000 / 60;
 
-        duracao.setText(d + " min.");
+        duracaoTextView.setText(d + " min.");
 
-        Album album1 = (Album) bundle.get(getResources().getString(R.string.CAPA));
+        Album album = (Album) bundle.get(getResources().getString(R.string.CAPA));
 
         Picasso.with(getApplicationContext())
-                .load(album1.getUrlImageLarge())
-                .into(capa);
+                .load(album.getUrlImageLarge())
+                .into(capaImageView);
 
     }
 }

@@ -18,10 +18,11 @@ import java.io.IOException;
 import java.util.Arrays;
 
 import br.com.pedrazzani.android.mymusicapp.adapters.LocalMusicAdapter;
+import br.com.pedrazzani.android.mymusicapp.entidades.Album;
 import br.com.pedrazzani.android.mymusicapp.services.LastFmService;
 import br.com.pedrazzani.android.mymusicapp.services.LocalMusicService;
 
-public class LocalActivity extends AppCompatActivity {
+public class BibliotecaLocalActivity extends AppCompatActivity {
 
     private final String TAG = getClass().getName();
     private LocalMusicAdapter localMusicAdapter;
@@ -32,16 +33,45 @@ public class LocalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_local);
 
-        final Cursor cursor = new LocalMusicService(this).getCursor();
+        Album album = getIntent().getParcelableExtra("ALBUM");
+
+        Cursor aux = null;
+        if (album == null) {
+            aux = new LocalMusicService(this).getCursor();
+            Log.i(TAG, "Cursor: " + aux.getCount());
+        } else {
+
+            String[] mProjection =
+                    {
+                            MediaStore.Audio.AudioColumns._ID,
+                            MediaStore.Audio.AudioColumns.TITLE,
+                            MediaStore.Audio.AudioColumns.DURATION,
+                            MediaStore.Audio.AudioColumns.YEAR,
+                            MediaStore.Audio.AudioColumns.ALBUM,
+                            MediaStore.Audio.AudioColumns.ARTIST,
+                            MediaStore.MediaColumns.DATA,
+                            MediaStore.Audio.AudioColumns.ALBUM_ID,
+                    };
+
+            Log.i(TAG, "Artista: " + album.getArtista());
+            Log.i(TAG, "Album: " + album.getNome());
+
+            aux = new LocalMusicService(this).getCursor(
+                    MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,
+                    mProjection,
+                    "album = ?",
+                    new String[]{album.getNome()},
+                    null);
+
+            Log.i(TAG, "Cursor: " + aux.getCount());
+
+        }
+
+        final Cursor cursor = aux;
 
         if (cursor != null) {
 
-
             cursor.moveToFirst();
-
-            for(int i = 0; i < cursor.getColumnCount(); i++){
-                System.out.println(cursor.getColumnName(i) + " : " + cursor.getString(1));
-            }
 
             localMusicAdapter = new LocalMusicAdapter(this, R.layout.content_music, cursor, null, null, 0);
 

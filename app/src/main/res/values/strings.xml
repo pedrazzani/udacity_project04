@@ -12,6 +12,4 @@
     <string name="detalhe_genero_label" translatable="true" >Gênero:</string>
     <string name="detalhe_genero_column" translatable="true" >genre_name</string>
 
-
-
 </resources>

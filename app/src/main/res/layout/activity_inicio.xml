@@ -6,7 +6,21 @@
     android:layout_height="match_parent"
     tools:context="br.com.pedrazzani.android.mymusicapp.InicioActivity">
 
+    <GridView
+        android:id="@+id/inicio_grid_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/include_inicio"
+        android:columnWidth="90dp"
+        android:gravity="center"
+        android:horizontalSpacing="10dp"
+        android:numColumns="auto_fit"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="10dp"
+        android:padding="8dp" />
 
-    <include layout="@layout/menu_layout" android:id="@+id/include_inicio" />
+    <include
+        android:id="@+id/include_inicio"
+        layout="@layout/menu_layout" />
 
 </RelativeLayout>

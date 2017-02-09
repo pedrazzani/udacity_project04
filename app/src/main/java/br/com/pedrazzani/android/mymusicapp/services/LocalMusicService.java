@@ -1,6 +1,7 @@
 package br.com.pedrazzani.android.mymusicapp.services;
 
 import android.database.Cursor;
+import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 
@@ -24,10 +25,10 @@ public class LocalMusicService {
         return cursor;
     }
 
-    public Cursor getCursor(String[] projection, String selectClause, String[] selectionArgs, String sortOrder) {
+    public Cursor getCursor(Uri uri, String[] projection, String selectionClause, String[] selectionArgs, String sortOrder) {
 
         Cursor cursor = activity.getContentResolver().query(
-                MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, projection, selectClause, selectionArgs, sortOrder);
+                uri, projection, selectionClause, selectionArgs, sortOrder);
 
         return cursor;
     }

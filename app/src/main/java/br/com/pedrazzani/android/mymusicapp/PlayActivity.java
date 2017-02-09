@@ -18,6 +18,8 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -48,7 +50,8 @@ public class PlayActivity extends AppCompatActivity {
 
         //Carrega a foto do Álbum da Música - Se existir
         Album album = bundle.getParcelable(getResources().getString(R.string.ALBUM));
-        new DownloadImageTask().execute(album.getUrlImageLarge());
+        ImageView capaImageView = (ImageView) findViewById(R.id.capa_play_image_view);
+        Picasso.with(getApplicationContext()).load(album.getUrlImageLarge()).into(capaImageView);
 
         //Ajusta a duração da trilha
         Long duracaoMS = Long.parseLong(bundle.getString(getResources().getString(R.string.DURACAO)));
@@ -147,30 +150,6 @@ public class PlayActivity extends AppCompatActivity {
     private void play() {
         if (!mediaPlayer.isPlaying())
             mediaPlayer.start();
-    }
-
-    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
-
-        @Override
-        protected Bitmap doInBackground(String... params) {
-            try {
-                URL urlImage = new URL(params[0]);
-                Bitmap bmImage = BitmapFactory.decodeStream(urlImage.openConnection().getInputStream());
-                return bmImage;
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Bitmap bitmap) {
-            ImageView capaAlbum = (ImageView) findViewById(R.id.capa_album_image_view);
-            capaAlbum.setImageBitmap(bitmap);
-        }
     }
 
 }

@@ -10,7 +10,7 @@
     tools:context="br.com.pedrazzani.android.mymusicapp.PlayActivity">
 
     <ImageView
-        android:id="@+id/capa_album_image_view"
+        android:id="@+id/capa_play_image_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.8"
